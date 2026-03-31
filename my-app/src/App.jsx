@@ -3,10 +3,10 @@ import "./App.css";
 
 function App() {
   const members = [
-    { name: "John Doe", role: "Leader" },
-    { name: "Jane Smith", role: "Developer" },
-    { name: "Mark Lee", role: "Designer" },
-    { name: "Anna Cruz", role: "Researcher" },
+    { name: "Jayrold Barreto", role: "Programmer" },
+    { name: "Christian Dave C. Tagadiad", role: "Programmer" },
+    { name: "Clarence Burbano", role: "Member" },
+    { name: "Kimberly Alegria", role: "Member" },
   ];
 
   return (
