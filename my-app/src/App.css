@@ -5,14 +5,12 @@ body {
 }
 
 .container {
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1000vh;
   padding: 20px;
 }
 
-/* Header */
 .header {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  background: linear-gradient(135deg, #063761, #05a7b0);
   color: white;
   padding: 40px 20px;
   border-radius: 12px;
@@ -28,7 +26,6 @@ body {
   opacity: 0.9;
 }
 
-/* Sections */
 .about,
 .members {
   margin-top: 40px;
@@ -38,7 +35,6 @@ body {
   color: #555;
 }
 
-/* Members grid */
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -46,7 +42,6 @@ body {
   margin-top: 20px;
 }
 
-/* Card */
 .card {
   background: white;
   padding: 20px;
@@ -65,7 +60,6 @@ body {
   color: #777;
 }
 
-/* Hover effect */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);

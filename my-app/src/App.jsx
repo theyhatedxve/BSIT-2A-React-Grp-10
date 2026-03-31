@@ -12,8 +12,8 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1>Our Group</h1>
-        <p>Welcome to our landing page</p>
+        <h1>Group 10</h1>
+        <p>Hello! and Welcome to our landing page</p>
       </header>
 
       <section className="about">
@@ -34,7 +34,7 @@ function App() {
           ))}
         </div>
       </section>
-      
+
     </div>
   );
 }
