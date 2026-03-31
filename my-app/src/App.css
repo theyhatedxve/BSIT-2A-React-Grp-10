@@ -1,37 +1,72 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f7fb;
 }
 
 .container {
-  text-align: center;
+  max-width: 1000px;
+  margin: auto;
   padding: 20px;
 }
 
+/* Header */
 .header {
-  background-color: #4d76e8;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
   color: white;
-  padding: 20px;
+  padding: 40px 20px;
+  border-radius: 12px;
 }
 
-.about {
-  margin: 20px 0;
+.header h1 {
+  margin: 0;
+  font-size: 36px;
 }
 
+.header p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Sections */
+.about,
 .members {
-  margin: 20px 0;
+  margin-top: 40px;
 }
 
+.about p {
+  color: #555;
+}
+
+/* Members grid */
 .cardContainer {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
+/* Card */
 .card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  width: 150px;
-  border-radius: 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card h3 {
+  margin: 0;
+  color: #333;
+}
+
+.card p {
+  margin-top: 5px;
+  color: #777;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
