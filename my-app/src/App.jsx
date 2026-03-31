@@ -19,8 +19,7 @@ function App() {
       <section className="about">
         <h2>About Us</h2>
         <p>
-          We are a group of students working together to complete projects and
-          learn new skills in technology.
+          We are group 10 from BSIT 2A, and we are passionate about programming and technology. We work together to create amazing projects and learn new skills. Our team is dedicated to delivering high-quality work and supporting each other in our learning journey.  
         </p>
       </section>
 
@@ -35,10 +34,7 @@ function App() {
           ))}
         </div>
       </section>
-
-      <footer className="footer">
-        <p>© 2026 Our Group</p>
-      </footer>
+      
     </div>
   );
 }
