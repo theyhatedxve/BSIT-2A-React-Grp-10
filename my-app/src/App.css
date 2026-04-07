@@ -31,6 +31,10 @@ body {
   margin-top: 40px;
 }
 
+.about h2{
+  color: black
+}
+
 .about p {
   color: #555;
 }
