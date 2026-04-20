@@ -1,0 +1,64 @@
+.container {
+  font-family: sans-serif;
+  max-width: 800px; 
+  margin: 40px auto;
+  padding: 20px;
+  color: #0f172a;
+}
+
+.clock-box {
+  border: 2px solid #e8edf5;
+  border-radius: 12px;
+  padding: 30px;
+  background-color: #f8fafc;
+  text-align: center;
+  margin: 20px 0 40px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.time-display {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #063761; 
+  margin: 10px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.greeting-message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #05a7b0; 
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e8edf5; 
+}
+
+.card h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.card p {
+  margin-top: 5px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
