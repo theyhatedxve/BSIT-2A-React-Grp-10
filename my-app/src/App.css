@@ -1,4 +1,3 @@
-/* ─── Reset & Base ─────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -14,14 +13,12 @@ body {
   min-height: 100vh;
 }
 
-/* ─── App Wrapper ───────────────────────────────────────── */
 .app-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* ─── Navbar ────────────────────────────────────────────── */
 .app-nav {
   position: sticky;
   top: 0;
@@ -32,7 +29,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  height: 64px;
+  min-height: 64px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
@@ -44,6 +41,7 @@ body {
   font-weight: 600;
   color: #063761;
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .brand-dot {
@@ -57,6 +55,8 @@ body {
 .app-nav-tabs {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-tab {
@@ -83,7 +83,6 @@ body {
   box-shadow: 0 4px 12px rgba(6, 55, 97, 0.25);
 }
 
-/* ─── Main Content ──────────────────────────────────────── */
 .app-main {
   flex: 1;
   padding: 40px 32px;
@@ -98,13 +97,13 @@ body {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* ─── Footer ────────────────────────────────────────────── */
 .app-footer {
   text-align: center;
   padding: 20px;
@@ -114,7 +113,6 @@ body {
   background: #ffffff;
 }
 
-/* ─── Scrollbar ─────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -132,22 +130,36 @@ body {
   background: #94a3b8;
 }
 
-/* ─── Responsive ────────────────────────────────────────── */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .app-nav {
-    padding: 0 16px;
+    padding: 12px 16px;
     flex-direction: column;
     height: auto;
-    padding: 12px 16px;
     gap: 10px;
+  }
+
+  .app-nav-tabs {
+    width: 100%;
+  }
+
+  .nav-tab {
+    flex: 1;
+    min-width: 95px;
+    padding: 8px 12px;
+    font-size: 13px;
   }
 
   .app-main {
     padding: 24px 16px;
   }
+}
+
+@media (max-width: 400px) {
+  .app-nav-brand {
+    font-size: 14px;
+  }
 
   .nav-tab {
-    padding: 6px 14px;
-    font-size: 13px;
+    min-width: 100%;
   }
 }

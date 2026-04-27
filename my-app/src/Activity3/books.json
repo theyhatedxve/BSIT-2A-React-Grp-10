@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "genre": "Self-Improvement",
+    "year": 2018,
+    "available": true
+  },
+  {
+    "id": 2,
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "genre": "Finance",
+    "year": 2020,
+    "available": false
+  },
+  {
+    "id": 3,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "genre": "Programming",
+    "year": 2008,
+    "available": true
+  },
+  {
+    "id": 4,
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "genre": "Productivity",
+    "year": 2016,
+    "available": true
+  },
+  {
+    "id": 5,
+    "title": "HTML and CSS",
+    "author": "Jon Duckett",
+    "genre": "Web Development",
+    "year": 2011,
+    "available": false
+  }
+]

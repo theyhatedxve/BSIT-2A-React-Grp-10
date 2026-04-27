@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Activity1 from "./Activity1/App";
 import Activity2 from "./Activity2/Activity2";
+import Activity3 from "./Activity3/Activity3";
 
 function App() {
   const [activeTab, setActiveTab] = useState("activity1");
@@ -11,8 +12,9 @@ function App() {
       <nav className="app-nav">
         <div className="app-nav-brand">
           <span className="brand-dot" />
-          Group 10 — BSIT 2A
+          Group 10 | BSIT 2A
         </div>
+
         <div className="app-nav-tabs">
           <button
             className={`nav-tab ${activeTab === "activity1" ? "active" : ""}`}
@@ -20,19 +22,28 @@ function App() {
           >
             Activity 1
           </button>
+
           <button
             className={`nav-tab ${activeTab === "activity2" ? "active" : ""}`}
             onClick={() => setActiveTab("activity2")}
           >
             Activity 2
           </button>
+
+          <button
+            className={`nav-tab ${activeTab === "activity3" ? "active" : ""}`}
+            onClick={() => setActiveTab("activity3")}
+          >
+            Activity 3
+          </button>
         </div>
       </nav>
 
       <main className="app-main">
-        {activeTab === "activity1" ? <Activity1 /> : <Activity2 />}
+        {activeTab === "activity1" && <Activity1 />}
+        {activeTab === "activity2" && <Activity2 />}
+        {activeTab === "activity3" && <Activity3 />}
       </main>
-
     </div>
   );
 }

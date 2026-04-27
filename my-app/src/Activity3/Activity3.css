@@ -1,0 +1,141 @@
+.library-page {
+  min-height: 80vh;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.library-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.library-label {
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.library-header h1 {
+  color: #111827;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.library-subtitle {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #374151;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #94a3b8;
+}
+
+.filter-btn.active {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.book-card {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  transition: 0.2s ease;
+}
+
+.book-card:hover {
+  border-color: #94a3b8;
+  transform: translateY(-3px);
+}
+
+.book-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.book-card h2 {
+  color: #111827;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.book-card p {
+  color: #4b5563;
+  font-size: 0.92rem;
+  margin: 8px 0;
+}
+
+.status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.available {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.borrowed {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.loading-text {
+  text-align: center;
+  margin-top: 80px;
+  color: #111827;
+}
+
+@media (max-width: 600px) {
+  .library-page {
+    padding: 24px 16px;
+  }
+
+  .library-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .book-card-header {
+    flex-direction: column;
+  }
+}
