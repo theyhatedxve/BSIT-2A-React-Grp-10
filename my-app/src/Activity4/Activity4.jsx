@@ -1,98 +1,137 @@
-import { useState, useEffect } from "react"
-import UserCard from "./UserCard"
+import { useEffect, useState } from "react"
+import UserCard from "./Usercard"
 import "./Activity4.css"
 
 function Activity4() {
-  const [users, setUsers] = useState([])
+  const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [filter, setFilter] = useState("all")
+  const [search, setSearch] = useState("")
+  const [filter, setFilter] = useState("All")
 
-  useEffect(() => {
-    fetch("https://randomuser.me/api/?results=12")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch users")
-        return res.json()
+  const apiUrl = "https://api.jikan.moe/v4/anime/40748/characters"
+
+  useEffect(function () {
+    fetch(apiUrl)
+      .then(function (response) {
+        return response.json()
       })
-      .then((data) => {
-        setUsers(data.results)
-        setLoading(false)
+      .then(function (data) {
+        setTimeout(function () {
+          setCharacters(data.data)
+          setLoading(false)
+        }, 1000)
       })
-      .catch((err) => {
-        setError(err.message)
+      .catch(function (error) {
+        console.log(error)
         setLoading(false)
       })
   }, [])
 
-  const filteredUsers = users.filter((user) => {
-    if (filter === "male") return user.gender === "male"
-    if (filter === "female") return user.gender === "female"
-    return true
-  })
+  function getFilteredCharacters() {
+    let result = []
 
-  if (loading) {
-    return (
-      <div className="loader-wrapper">
-        <div className="spinner" />
-        <p className="loader-text">Fetching users from API...</p>
-      </div>
-    )
+    for (let i = 0; i < characters.length; i++) {
+      let item = characters[i]
+      let name = item.character.name.toLowerCase()
+      let searchText = search.toLowerCase()
+
+      if (filter === "All") {
+        if (name.includes(searchText)) {
+          result.push(item)
+        }
+      }
+
+      if (filter === "Main") {
+        if (item.role === "Main" && name.includes(searchText)) {
+          result.push(item)
+        }
+      }
+
+      if (filter === "Supporting") {
+        if (item.role === "Supporting" && name.includes(searchText)) {
+          result.push(item)
+        }
+      }
+    }
+
+    return result
   }
 
-  if (error) {
+  const filteredCharacters = getFilteredCharacters()
+
+  if (loading === true) {
     return (
-      <div className="loader-wrapper">
-        <p className="loader-text" style={{ color: "#ef4444" }}>Error: {error}</p>
+      <div className="loader-box">
+        <div className="loader"></div>
+        <h2>Loading characters...</h2>
       </div>
     )
   }
 
   return (
-    <section className="users-page">
-      <div className="users-header">
-        <p className="users-label">Activity 4</p>
-        <h1>User Directory</h1>
-        <p className="users-subtitle">
-          This program fetches real user data from an external API using
-          useState, useEffect, reusable components, and props.
+    <div className="activity-page">
+      <div className="header">
+        <p className="small-title">Activity 4</p>
+        <h1>Jujutsu Kaisen Characters</h1>
+        <p>
+          This page gets character data from an API using React hooks,
+          reusable components, and props.
         </p>
       </div>
 
-      <div className="filter-buttons">
+      <div className="controls">
+        <input
+          type="text"
+          placeholder="Search character"
+          value={search}
+          onChange={function (event) {
+            setSearch(event.target.value)
+          }}
+        />
+
         <button
-          className={filter === "all" ? "filter-btn active" : "filter-btn"}
-          onClick={() => setFilter("all")}
+          onClick={function () {
+            setFilter("All")
+          }}
         >
-          All Users
+          All
         </button>
+
         <button
-          className={filter === "male" ? "filter-btn active" : "filter-btn"}
-          onClick={() => setFilter("male")}
+          onClick={function () {
+            setFilter("Main")
+          }}
         >
-          Male
+          Main
         </button>
+
         <button
-          className={filter === "female" ? "filter-btn active" : "filter-btn"}
-          onClick={() => setFilter("female")}
+          onClick={function () {
+            setFilter("Supporting")
+          }}
         >
-          Female
+          Supporting
         </button>
       </div>
 
-      <div className="user-grid">
-        {filteredUsers.map((user, index) => (
-          <UserCard
-            key={index}
-            name={`${user.name.first} ${user.name.last}`}
-            email={user.email}
-            location={`${user.location.city}, ${user.location.country}`}
-            gender={user.gender}
-            picture={user.picture.large}
-            age={user.dob.age}
-          />
-        ))}
+      <p className="result-text">
+        Showing {filteredCharacters.length} characters
+      </p>
+
+      <div className="character-grid">
+        {filteredCharacters.map(function (item) {
+          return (
+            <UserCard
+              key={item.character.mal_id}
+              name={item.character.name}
+              image={item.character.images.jpg.image_url}
+              role={item.role}
+              favorites={item.favorites}
+            />
+          )
+        })}
       </div>
-    </section>
+    </div>
   )
 }
 
